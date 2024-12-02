@@ -1,4 +1,4 @@
-Solutions for [Advent of Code 2024](https://adventofcode.com/2024) in Rust.
+Solutions for [Advent of Code 2024](https://adventofcode.com/2024) in Rust. Started Dec. 2, 2024.
 
 ## Structure
 - `src/solutions/` - Daily solutions
@@ -9,3 +9,6 @@ Solutions for [Advent of Code 2024](https://adventofcode.com/2024) in Rust.
 ```bash
 cargo run
 ```
+
+## Star Count
+- Dec. 2, 2024: 4⭐
