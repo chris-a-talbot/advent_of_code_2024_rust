@@ -10,4 +10,8 @@ fn main() {
     if let Err(e) = solutions::day02::solve() {
         eprintln!("Error solving day 02: {}", e);
     }
+
+    if let Err(e) = solutions::day03::solve() {
+        eprintln!("Error solving day 03: {}", e);
+    }
 }
