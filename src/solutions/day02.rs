@@ -28,7 +28,7 @@ fn is_valid_report(report: &Vec<i32>) -> bool {
         .all(|diff| diff >= 1 && diff <= 3)
 }
 
-fn could_be_valid_with_removal(report: &Vec<i32>) -> bool {
+fn is_valid_with_removal(report: &Vec<i32>) -> bool {
     (0..report.len()).any(|i| {
         let mut modified = report.clone();
         modified.remove(i);
@@ -36,22 +36,20 @@ fn could_be_valid_with_removal(report: &Vec<i32>) -> bool {
     })
 }
 
-fn solve_part1(input: &str) -> Result<String> {
+fn get_valid_count(input: &str, remove_one: bool) -> Result<String> {
     let reports = read_reports(input);
-    let valid_count = reports
+    Ok(reports
         .iter()
-        .filter(|report| is_valid_report(report))
-        .count();
+        .filter(|report| is_valid_report(report)
+            || (remove_one && is_valid_with_removal(report)))
+        .count()
+        .to_string())
+}
 
-    Ok(valid_count.to_string())
+fn solve_part1(input: &str) -> Result<String> {
+    Ok(get_valid_count(input, false)?)
 }
 
 fn solve_part2(input: &str) -> Result<String> {
-    let reports = read_reports(input);
-    let valid_count = reports
-        .iter()
-        .filter(|report| is_valid_report(report) || could_be_valid_with_removal(report))
-        .count();
-
-    Ok(valid_count.to_string())
+    Ok(get_valid_count(input, true)?)
 }
