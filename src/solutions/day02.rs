@@ -1,7 +1,7 @@
 use anyhow::Result;
 use crate::utils::input;
 use std::str::FromStr;
-use itertools::Itertools;
+
 pub fn solve() -> Result<()> {
     let input = input::read_file(2)?;
 

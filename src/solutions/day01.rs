@@ -1,7 +1,6 @@
 use std::collections::{HashMap, HashSet};
 use anyhow::Result;  // Import Result type for error handling
 use crate::utils::input;  // Import custom input utilities
-use std::fs::read_to_string;  // Import file reading functionality
 
 pub fn solve() -> Result<()> {
     let input = input::read_file(1)?;
@@ -34,16 +33,6 @@ fn parse_sort_lists(content: &str) -> (Vec<i32>, Vec<i32>) {
     lists
 }
 
-/// Solves part 1 of the challenge
-///
-/// Calculates the sum of absolute differences between corresponding elements
-/// in two sorted lists of numbers
-///
-/// # Arguments
-/// * `input` - String slice containing the puzzle input
-///
-/// # Returns
-/// * Result containing the solution as a string
 fn solve_part1(input: &str) -> Result<String> {
     // Parse input into two sorted lists
     let (left, right) = parse_sort_lists(input);
@@ -61,13 +50,6 @@ fn solve_part1(input: &str) -> Result<String> {
     Ok(sum.to_string())
 }
 
-/// Placeholder for part 2 solution
-///
-/// # Arguments
-/// * `input` - String slice containing the puzzle input
-///
-/// # Returns
-/// * Result containing solution as a string
 fn solve_part2(input: &str) -> Result<String> {
     // Parse input into two sorted lists
     let (left, right) = parse_sort_lists(input);
@@ -81,7 +63,7 @@ fn solve_part2(input: &str) -> Result<String> {
 
     // Calculate similarity score
     for x in left_unique.iter() {
-        if(frequencies.contains_key(x)) {
+        if frequencies.contains_key(x) {
             similarity += x * frequencies.get(x).unwrap();
         }
     }
